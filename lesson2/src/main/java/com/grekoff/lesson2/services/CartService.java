@@ -28,8 +28,6 @@ public class CartService {
         return tempCart;
     }
 
-
-
     public void addToCart(Long productId) {
         Product p = productsService.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Продукт с id: " + productId + " не найден"));
         tempCart.add(p);

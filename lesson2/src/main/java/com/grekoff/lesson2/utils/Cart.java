@@ -42,13 +42,11 @@ public class Cart {
             if (item.getProductId().equals(id)) {
                 if (item.getQuantity() > 1) {
                     item.decrementQuantity();
-                    recalculate();
-                    return;
                 } else {
                     items.remove(item);;
-                    recalculate();
-                    return;
                 }
+                recalculate();
+                return;
             }
         }
     }
