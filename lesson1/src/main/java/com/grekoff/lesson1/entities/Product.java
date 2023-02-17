@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "products")
 @NoArgsConstructor
@@ -19,5 +21,5 @@ public class Product {
     private String title;
 
     @Column(name = "price")
-    private int price;
+    private BigDecimal price;
 }
