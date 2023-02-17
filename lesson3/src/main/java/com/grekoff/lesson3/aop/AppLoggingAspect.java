@@ -23,12 +23,20 @@ public class AppLoggingAspect {
         String methodName = jp.getSignature().getName();
         Object[] args = jp.getArgs();
         String arg = "";
+        String delimiter;
         if (args.length > 0) {
-            for (Object o : args) {
-                arg = arg + o + ", " ;
+            for (int i = 0; i < args.length; i++) {
+                if (i < args.length - 1) {
+                    delimiter = ", " ;
+                } else {
+                    delimiter = "";
+                }
+                arg = arg + args[i] + delimiter;
             }
+        } else {
+            arg = "без аргументов.";
         }
-        log.info("В ПРИЛОЖЕНИИ ВЫЗВАН МЕТОД: {}#{}. АРГУМЕНТЫ: {}", beanClass.getName(), methodName, arg);
+        log.info("В ПРИЛОЖЕНИИ В КЛАССЕ: {} ВЫЗВАН МЕТОД: {}. АРГУМЕНТЫ: {}", beanClass.getName(), methodName, arg);
     }
 
     @AfterReturning(
