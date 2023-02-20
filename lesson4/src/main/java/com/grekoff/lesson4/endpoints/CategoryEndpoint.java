@@ -19,7 +19,7 @@ public class CategoryEndpoint {
     private final CategoryService categoryService;
 
     /*
-        Пример запроса: POST http://localhost:8189/lesson4/lesson4/ws
+        Пример запроса: POST http://localhost:8189/lesson4/ws
 
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
           xmlns:f="http://www.grekoff.com/lesson4/categories">
