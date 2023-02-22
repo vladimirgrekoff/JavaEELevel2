@@ -73,6 +73,7 @@ public class ProductsService {
     public void deleteById(Long id) {
         productsRepository.deleteById(id);
     }
+
     @Transactional
     public void createNewProduct(ProductDto productDto) {
         Product product = new Product();
