@@ -64,9 +64,9 @@
         <tr ng-repeat="p in ProductsList">
             <td>{{p.id}}</td>
             <td>{{p.title}}</td>
-            <td><button class="btn btn-primary" ng-click="updateProduct(p, -5)">-</button></td>
+            <td><button class="btn btn-primary" ng-click="updateProduct(p, -1)">-</button></td>
             <td>{{p.price}}</td>
-            <td><button class="btn btn-primary" ng-click="updateProduct(p, 5)">+</button></td>
+            <td><button class="btn btn-primary" ng-click="updateProduct(p, 1)">+</button></td>
             <td><button class="btn btn-danger" ng-click="deleteProduct(p.id)">Удалить</button></td>
         </tr>
         <tr>
@@ -76,18 +76,28 @@
         </tbody>
     </table>
     <h3 align="center">Добавить продукт в список</h3>
-    <table class="table table-hover" cellpadding="0" cellspacing="0" align="center">
+    <table width="80%"  class="table table-hover" cellpadding="0" cellspacing="0" align="center">
+        <thead class="thead-light">
         <tr>
             <td><b>Наименование</b></td>
             <td><b>Цена</b></td>
+            <td><b>Категория</b></td>
             <td><b>Действие</b></td>
         </tr>
+        </thead>
+        <tbody>
         <tr>
-        </tr>
-        <tr>
-            <form novalidate>
+<!--            <form class="form-floating input-group">-->
+            <form class="form-floating-lg">
                 <td><input class="form-control" type="text" ng-model="newProduct.title" id="title" name="title" placeholder="Наименование" required/></td>
                 <td><input class="form-control" type="number" ng-model="newProduct.price" id="price" name="price" placeholder="Цена" required/></td>
+                <td>
+                    <select height="100%" class="form-select-lg" id="categoryTitle" name="categoryTitle" ng-init = "selected" ng-model="categoryTitle" >
+                        <option ng-selected="selected" value="" selected>Выбор категории</option>
+                        <option value="Продукты">Продукты</option>
+                        <option value="Бытовая химия">Бытовая химия</option>
+                    </select>
+                </td>
                 <td><button class="btn btn-primary" type="button" ng-click="addNewProduct()">Добавить в список</button></td>
             </form>
         </tr>

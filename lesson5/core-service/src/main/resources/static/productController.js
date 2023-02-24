@@ -38,10 +38,13 @@ app.controller("productController", function($rootScope, $scope, $http, $locatio
     };
 
     $scope.addNewProduct = function () {
+        $scope.newProduct.categoryTitle = $scope.categoryTitle;
         $http.post(contextPath + '/products', $scope.newProduct)
             .then(function (response) {
                 $scope.newProduct.title = null;
                 $scope.newProduct.price = null;
+                $scope.newProduct.categoryTitle = null;
+                $scope.categoryTitle = $scope.selected;
                 $scope.loadProducts();
             });
     };
