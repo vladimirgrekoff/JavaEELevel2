@@ -44,6 +44,6 @@ public class OrdersService {
                 )
         ).collect(Collectors.toList()));
         ordersRepository.save(order);
-//        cartServiceIntegration.deleteAll();
+        cartServiceIntegration.deleteAllProducts();
     }
 }

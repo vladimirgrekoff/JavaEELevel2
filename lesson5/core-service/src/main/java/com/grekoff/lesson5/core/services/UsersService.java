@@ -29,10 +29,7 @@ public class UsersService implements UserDetailsService {
     private final UsersRepository usersRepository;
     private final UserConverter userConverter;
 
-//    @Autowired
-//    public void setUserConverter(UserConverter userConverter) {
-//        this.userConverter = userConverter;
-//    }
+
 
 
 

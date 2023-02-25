@@ -87,12 +87,11 @@
         </thead>
         <tbody>
         <tr>
-<!--            <form class="form-floating input-group">-->
-            <form class="form-floating-lg">
+            <form class="form-floating input-group">
                 <td><input class="form-control" type="text" ng-model="newProduct.title" id="title" name="title" placeholder="Наименование" required/></td>
                 <td><input class="form-control" type="number" ng-model="newProduct.price" id="price" name="price" placeholder="Цена" required/></td>
                 <td>
-                    <select height="100%" class="form-select-lg" id="categoryTitle" name="categoryTitle" ng-init = "selected" ng-model="categoryTitle" >
+                    <select class="form-select" id="categoryTitle" name="categoryTitle" ng-init = "selected" ng-model="categoryTitle"  required>
                         <option ng-selected="selected" value="" selected>Выбор категории</option>
                         <option value="Продукты">Продукты</option>
                         <option value="Бытовая химия">Бытовая химия</option>

@@ -13,8 +13,8 @@ public class CartServiceIntegration {
     public CartDto  getCurrentCart() {
         return restTemplate.getForObject("http://localhost:8190/lesson5-cart/api/v1/cart" , CartDto.class);
     }
-    public void deleteAll() {
-        restTemplate.getForObject("http://localhost:8190/lesson5-cart/api/v1/cart/clear" , CartDto.class);
+    public void deleteAllProducts() {
+        restTemplate.delete("http://localhost:8190/lesson5-cart/api/v1/cart/clear");
     }
 
 }

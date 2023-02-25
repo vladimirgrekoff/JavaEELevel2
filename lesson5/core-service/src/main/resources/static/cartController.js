@@ -14,11 +14,10 @@ app.controller("cartController", function($rootScope, $scope, $http, $location, 
         $http.defaults.headers.common.Authorization;
     };
 
-//
-//    $scope.showNavigationPage = function () {
-//    console.log('перейти на страницу навигации');///////////////////////
-//        $location.path('navigation');
-//    };
+
+    $scope.showNavigationPage = function () {
+        $location.path('navigation');
+    };
 
 
 
@@ -64,7 +63,7 @@ app.controller("cartController", function($rootScope, $scope, $http, $location, 
     };
 
     $scope.clearCart = function () {
-        $http.get(contextPathCart + '/cart/clear')
+        $http.delete(contextPathCart + '/cart/clear')
             .then(function (response) {
                 $scope.loadCart();
             });
