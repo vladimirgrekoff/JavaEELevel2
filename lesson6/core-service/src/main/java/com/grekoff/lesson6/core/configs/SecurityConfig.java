@@ -30,12 +30,10 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        log.info("Dao Authentication Provider");
+
         http    .csrf().disable()
                 .cors().disable()
                 .authorizeHttpRequests()
-//                .requestMatchers("/", "/**", "/resources/**", "/resources/templates/**", "/api/v1/auth/**").permitAll()
-                .requestMatchers("/api/v1/orders/**").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
