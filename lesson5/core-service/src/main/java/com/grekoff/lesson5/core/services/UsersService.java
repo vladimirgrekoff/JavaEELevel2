@@ -2,11 +2,11 @@ package com.grekoff.lesson5.core.services;
 
 
 import com.grekoff.lesson5.core.converters.UserConverter;
-import com.grekoff.lesson5.api.UserDto;
 import com.grekoff.lesson5.core.entities.Role;
 import com.grekoff.lesson5.core.entities.User;
 import com.grekoff.lesson5.core.exceptions.ResourceNotFoundException;
 import com.grekoff.lesson5.core.repositories.UsersRepository;
+import com.grekoff.lesson5.api.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

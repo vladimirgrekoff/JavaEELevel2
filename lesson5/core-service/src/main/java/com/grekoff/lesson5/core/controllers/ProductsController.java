@@ -1,11 +1,10 @@
 package com.grekoff.lesson5.core.controllers;
 
 import com.grekoff.lesson5.api.ProductDto;
-import com.grekoff.lesson5.core.converters.ProductConverter;
-import com.grekoff.lesson5.core.entities.Product;
 import com.grekoff.lesson5.core.exceptions.ResourceNotFoundException;
-import com.grekoff.lesson5.core.services.ProductsService;
 import com.grekoff.lesson5.core.validators.ProductValidator;
+import com.grekoff.lesson5.core.converters.ProductConverter;
+import com.grekoff.lesson5.core.services.ProductsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;

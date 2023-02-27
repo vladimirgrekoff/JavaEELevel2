@@ -1,7 +1,5 @@
 package com.grekoff.lesson5.api;
 
-import com.grekoff.lesson5.api.RoleDto;
-
 import java.util.Collection;
 
 

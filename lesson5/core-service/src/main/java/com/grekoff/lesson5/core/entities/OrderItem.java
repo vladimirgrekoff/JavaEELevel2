@@ -1,13 +1,10 @@
 package com.grekoff.lesson5.core.entities;
 
-import com.grekoff.lesson5.api.ProductDto;
-import com.grekoff.lesson5.core.entities.Product;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.security.core.parameters.P;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

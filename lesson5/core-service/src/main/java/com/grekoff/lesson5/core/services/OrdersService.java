@@ -6,13 +6,10 @@ import com.grekoff.lesson5.api.CartDto;
 import com.grekoff.lesson5.core.entities.Order;
 import com.grekoff.lesson5.core.entities.OrderItem;
 import com.grekoff.lesson5.core.entities.User;
-import com.grekoff.lesson5.core.entities.Product;
-import com.grekoff.lesson5.core.converters.ProductConverter;
 import com.grekoff.lesson5.core.integrations.CartServiceIntegration;
 import com.grekoff.lesson5.core.repositories.OrdersRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;

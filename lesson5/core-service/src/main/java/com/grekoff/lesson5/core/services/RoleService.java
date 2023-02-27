@@ -1,9 +1,9 @@
 package com.grekoff.lesson5.core.services;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import com.grekoff.lesson5.core.entities.Role;
 import com.grekoff.lesson5.core.repositories.RoleRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor

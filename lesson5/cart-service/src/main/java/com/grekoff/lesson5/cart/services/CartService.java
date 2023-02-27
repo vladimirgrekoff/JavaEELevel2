@@ -4,7 +4,6 @@ import com.grekoff.lesson5.api.ProductDto;
 import com.grekoff.lesson5.cart.integrations.ProductServiceIntegration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import com.grekoff.lesson5.cart.exceptions.ResourceNotFoundException;
 import com.grekoff.lesson5.cart.utils.Cart;
 
 import jakarta.annotation.PostConstruct;
