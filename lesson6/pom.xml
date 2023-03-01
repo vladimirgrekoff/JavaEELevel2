@@ -10,6 +10,8 @@
         <module>core-service</module>
         <module>cart-service</module>
         <module>front-service</module>
+        <module>gateway-service</module>
+        <module>auth-service</module>
     </modules>
 
 

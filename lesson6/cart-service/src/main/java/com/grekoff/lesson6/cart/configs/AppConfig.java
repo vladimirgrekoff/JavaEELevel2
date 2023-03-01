@@ -1,6 +1,6 @@
 package com.grekoff.lesson6.cart.configs;
 
-import com.grekoff.lesson6.cart.properties.ProductServiceIntegrationProperties;
+import com.grekoff.lesson6.cart.properties.ProductsServiceIntegrationProperties;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
@@ -18,29 +18,25 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @RequiredArgsConstructor
 @EnableConfigurationProperties(
-        ProductServiceIntegrationProperties.class
+        ProductsServiceIntegrationProperties.class
 )
 public class AppConfig {
-    private final ProductServiceIntegrationProperties productServiceIntegrationProperties;
-
-//    public AppConfig(ProductServiceIntegrationProperties productServiceIntegrationProperties) {
-//        this.productServiceIntegrationProperties = productServiceIntegrationProperties;
-//    }
+    private final ProductsServiceIntegrationProperties productsServiceIntegrationProperties;
 
 
     @Bean
     public WebClient productServiceWebClient() {
         TcpClient tcpClient = TcpClient
                 .create()
-                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, productServiceIntegrationProperties.getConnectTimeout())
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, productsServiceIntegrationProperties.getConnectTimeout())
                 .doOnConnected(connection -> {
-                    connection.addHandlerLast(new ReadTimeoutHandler(productServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS));
-                    connection.addHandlerLast(new WriteTimeoutHandler(productServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS));
+                    connection.addHandlerLast(new ReadTimeoutHandler(productsServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS));
+                    connection.addHandlerLast(new WriteTimeoutHandler(productsServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS));
                 });
 
         return WebClient
                 .builder()
-                .baseUrl(productServiceIntegrationProperties.getUrl())
+                .baseUrl(productsServiceIntegrationProperties.getUrl())
                 .clientConnector(new ReactorClientHttpConnector(HttpClient.from(tcpClient)))
                 .build();
     }

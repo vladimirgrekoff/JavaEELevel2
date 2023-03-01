@@ -1,6 +1,8 @@
 app.controller("cartController", function($rootScope, $scope, $http, $location, $window, $localStorage) {
-    const contextPathCore = 'http://localhost:8189/lesson6-core/api/v1';
-    const contextPathCart = 'http://localhost:8190/lesson6-cart/api/v1';
+//    const contextPathCore = 'http://localhost:8189/lesson6-core/api/v1';
+//    const contextPathCart = 'http://localhost:8190/lesson6-cart/api/v1';
+    const contextPathCore = 'http://localhost:5555/core/api/v1';
+    const contextPathCart = 'http://localhost:5555/cart/api/v1';
 
 
 

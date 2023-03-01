@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 //@ConstructorBinding
 @ConfigurationProperties(prefix = "integrations.product-service")
 @Data
-public class ProductServiceIntegrationProperties {
+public class ProductsServiceIntegrationProperties {
     private String url;
     private Integer connectTimeout;
     private Integer readTimeout;

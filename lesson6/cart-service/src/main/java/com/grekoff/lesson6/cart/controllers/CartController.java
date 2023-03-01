@@ -11,7 +11,7 @@ import com.grekoff.lesson6.api.CartDto;
 @RestController
 @RequestMapping("/api/v1/cart")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class CartController {
     private final CartService cartService;
     private final CartConverter cartConverter;

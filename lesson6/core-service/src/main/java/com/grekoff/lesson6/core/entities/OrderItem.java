@@ -17,19 +17,21 @@ public class OrderItem {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    private Long id;
+
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
 
-    @Column(name = "quantity")
-    private int quantity;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     @Column(name = "price_per_product")
     private BigDecimal pricePerProduct;
+
+    @Column(name = "quantity")
+    private int quantity;
 
     @Column(name = "price")
     private BigDecimal price;

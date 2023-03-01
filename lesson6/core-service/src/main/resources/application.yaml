@@ -21,8 +21,9 @@ spring:
       enabled: true
       settings:
         web-allow-others: false
-  soap:
-    context-path: /ws
-jwt:
-  secret: e8ukf967unw3r7u33b24bju7vs3k6h0tr5r33ff7fh4d2hh80ty4v96f2vm
-  lifetime: 36000000
+integrations:
+  product-service:
+    url: http://localhost:8190/lesson6-cart/
+    connect-timeout: 5000
+    read-timeout: 10000
+    write-timeout: 5000

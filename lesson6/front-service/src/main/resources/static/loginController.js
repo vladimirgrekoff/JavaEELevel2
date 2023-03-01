@@ -1,5 +1,6 @@
 app.controller("loginController", function($rootScope, $scope, $http, $location, $window, $localStorage) {
-    const contextPath = 'http://localhost:8189/lesson6-core/api/v1';
+//    const contextPath = 'http://localhost:8189/lesson6-core/api/v1';
+    const contextPath = 'http://localhost:5555/auth/api/v1';
 
     $scope.$on('routeChangeStart', function(event, next, current) {
         if (typeof(current) != 'undefined') {
@@ -12,7 +13,7 @@ app.controller("loginController", function($rootScope, $scope, $http, $location,
     };
 
     $scope.loginUser = function() {
-        $http.post(contextPath + '/auth/token', $scope.user)
+        $http.post(contextPath + '/authenticate', $scope.user)
             .then(function successCallback(response) {
                 if (response.data.token) {
                     $http.defaults.headers.common.Authorization ='Bearer ' + response.data.token;
@@ -24,6 +25,7 @@ app.controller("loginController", function($rootScope, $scope, $http, $location,
                     $location.path('/navigation');
                 }
             }, function errorCallback(response) {
+                $scope.error = response.data.message;
             });
     };
 

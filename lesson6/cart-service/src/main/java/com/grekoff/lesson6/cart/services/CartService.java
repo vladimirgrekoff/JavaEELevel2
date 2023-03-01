@@ -1,7 +1,7 @@
 package com.grekoff.lesson6.cart.services;
 
 import com.grekoff.lesson6.api.ProductDto;
-import com.grekoff.lesson6.cart.integrations.ProductServiceIntegration;
+import com.grekoff.lesson6.cart.integrations.ProductsServiceIntegration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.grekoff.lesson6.cart.utils.Cart;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class CartService {
 
-    private final ProductServiceIntegration productServiceIntegration;
+    private final ProductsServiceIntegration productsServiceIntegration;
     private Cart cart;
 
     @PostConstruct
@@ -29,7 +29,7 @@ public class CartService {
     }
 
     public void addToCart(Long productId) {
-        ProductDto p = productServiceIntegration.findById(productId);
+        ProductDto p = productsServiceIntegration.findById(productId);
         cart.add(p);
     }
 

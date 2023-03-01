@@ -1,5 +1,6 @@
 app.controller("navigationController", function($rootScope, $scope, $http, $location, $window, $localStorage) {
-    const contextPath = 'http://localhost:8189/lesson6-core/api/v1';
+//    const contextPath = 'http://localhost:8189/lesson6-core/api/v1';
+    const contextPath = 'http://localhost:5555/core/api/v1';
 
     $scope.$on('routeChangeStart', function(event, next, current) {
         if (typeof(current) != 'undefined') {

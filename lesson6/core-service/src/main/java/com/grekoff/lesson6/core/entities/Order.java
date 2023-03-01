@@ -20,21 +20,19 @@ public class Order {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "user_id")
+    private String username;
+
+    @Column(name = "total_price")
+    private BigDecimal totalPrice;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
     private List<OrderItem> orderItem;
 
     @Column(name = "email")
     private String email;
-
-
-    @Column(name = "total_price")
-    private BigDecimal totalPrice;
 
     @CreationTimestamp
     @Column(name = "created_at")

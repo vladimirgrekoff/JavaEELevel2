@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class ProductsController {
     private final ProductsService productsService;
     private final ProductConverter productConverter;
