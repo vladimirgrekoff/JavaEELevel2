@@ -1,9 +1,9 @@
 package com.grekoff.lesson7.core.controllers;
 
+import com.grekoff.lesson7.core.services.OrdersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import com.grekoff.lesson7.core.services.OrdersService;
 
 @RestController
 @RequestMapping("/api/v1/orders")

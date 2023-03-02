@@ -1,10 +1,8 @@
 package com.grekoff.lesson7.core.integrations;
 
 import com.grekoff.lesson7.api.CartDto;
-import com.grekoff.lesson7.api.ProductDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
