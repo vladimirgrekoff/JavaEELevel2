@@ -1,4 +1,4 @@
-package com.grekoff.lesson6.api;
+package com.grekoff.lesson6;
 
 
 

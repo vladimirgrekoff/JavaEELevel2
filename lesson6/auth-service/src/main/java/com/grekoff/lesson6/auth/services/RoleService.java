@@ -1,7 +1,7 @@
 package com.grekoff.lesson6.auth.services;
 
-import com.grekoff.lesson6.auth.entities.Role;
 import com.grekoff.lesson6.auth.repositories.RoleRepository;
+import com.grekoff.lesson6.auth.entities.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

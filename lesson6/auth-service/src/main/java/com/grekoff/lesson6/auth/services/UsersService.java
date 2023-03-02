@@ -2,11 +2,11 @@ package com.grekoff.lesson6.auth.services;
 
 
 import com.grekoff.lesson6.api.UserDto;
-import com.grekoff.lesson6.auth.converters.UserConverter;
-import com.grekoff.lesson6.auth.entities.Role;
 import com.grekoff.lesson6.auth.entities.User;
 import com.grekoff.lesson6.auth.exceptions.ResourceNotFoundException;
 import com.grekoff.lesson6.auth.repositories.UsersRepository;
+import com.grekoff.lesson6.auth.converters.UserConverter;
+import com.grekoff.lesson6.auth.entities.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -2,9 +2,9 @@ package com.grekoff.lesson6.auth.controllers;
 
 import com.grekoff.lesson6.api.JwtResponse;
 import com.grekoff.lesson6.api.UserDto;
-import com.grekoff.lesson6.auth.converters.RoleConverter;
 import com.grekoff.lesson6.auth.entities.User;
 import com.grekoff.lesson6.auth.services.UsersService;
+import com.grekoff.lesson6.auth.converters.RoleConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,5 @@
 package com.grekoff.lesson6.auth.configs;
 
-import com.grekoff.lesson6.auth.services.UsersService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
