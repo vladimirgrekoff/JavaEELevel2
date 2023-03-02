@@ -1,5 +1,5 @@
 app.controller("loginController", function($rootScope, $scope, $http, $location, $window, $localStorage) {
-//    const contextPath = 'http://localhost:8189/lesson6-core/api/v1';
+//    const contextPath = 'http://localhost:8187/lesson6-auth/api/v1';
     const contextPath = 'http://localhost:5555/auth/api/v1';
 
     $scope.$on('routeChangeStart', function(event, next, current) {
@@ -16,6 +16,8 @@ app.controller("loginController", function($rootScope, $scope, $http, $location,
         $http.post(contextPath + '/authenticate', $scope.user)
             .then(function successCallback(response) {
                 if (response.data.token) {
+                    console.log('ответ ' + response.data.token);////////////////////////////////////////////////////////
+
                     $http.defaults.headers.common.Authorization ='Bearer ' + response.data.token;
                     $localStorage.springWebUser = {username: $scope.user.username, token: response.data.token};
 
@@ -25,7 +27,8 @@ app.controller("loginController", function($rootScope, $scope, $http, $location,
                     $location.path('/navigation');
                 }
             }, function errorCallback(response) {
-                $scope.error = response.data.message;
+                console.log('ошибки ' + response);////////////////////////////////////////////////////////
+//                $scope.error = response;
             });
     };
 
@@ -86,12 +89,28 @@ app.controller("loginController", function($rootScope, $scope, $http, $location,
 
 
     $scope.getCurrentUserRoles = function() {
+                console.log('запрос ролей');////////////////////////////////////////////////////////
         $http.get(contextPath + '/profile/roles')
             .then(function successCallback(response) {
+                console.log('роли ' + response);////////////////////////////////////////////////////////
                 $localStorage.currentRoles = response.data.roles;
             }, function errorCallback(response) {
                 alert('UNAUTHORIZED');
             });
+
+//       try {
+//            let jwt = $localStorage.springWebUser.token;
+//            let payload = JSON.parse(atob(jwt.split('.')[1]));
+//                console.log('Token ' + payload.roles);////////////////////////////////////////////////////////
+//            let currentTime = parseInt(new Date().getTime() / 1000);
+//            if (currentTime > payload.exp) {
+//                console.log("Token is expired!!!");
+//                delete $localStorage.springWebUser;
+//                $http.defaults.headers.common.Authorization = '';
+//            }
+//        } catch (e) {
+//        }
     };
+
 
 });

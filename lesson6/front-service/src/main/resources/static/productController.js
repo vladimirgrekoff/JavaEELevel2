@@ -8,10 +8,6 @@ app.controller("productController", function($rootScope, $scope, $http, $locatio
         }
     });
 
-
-
-
-
     $scope.loadProducts = function (offset, limit) {
             $http({
                 url: contextPath + '/products',

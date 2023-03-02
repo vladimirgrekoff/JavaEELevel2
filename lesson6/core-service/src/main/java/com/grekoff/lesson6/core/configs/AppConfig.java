@@ -15,6 +15,8 @@ import reactor.netty.tcp.TcpClient;
 
 import java.util.concurrent.TimeUnit;
 
+import static io.netty.channel.ChannelOption.CONNECT_TIMEOUT_MILLIS;
+
 @Configuration
 @RequiredArgsConstructor
 @EnableConfigurationProperties(
@@ -25,19 +27,29 @@ public class AppConfig {
 
     @Bean
     public WebClient cartServiceWebClient() {
-        TcpClient tcpClient = TcpClient
-                .create()
-                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, cartServiceIntegrationProperties.getConnectTimeout())
-                .doOnConnected(connection -> {
-                    connection.addHandlerLast(new ReadTimeoutHandler(cartServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS));
-                    connection.addHandlerLast(new WriteTimeoutHandler(cartServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS));
-                });
+//        HttpClient.create();
+//        return WebClient
+//                .builder()
+//                .baseUrl(cartServiceIntegrationProperties.getUrl())
+//                .clientConnector(new ReactorClientHttpConnector(HttpClient.newConnection()
+//                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, cartServiceIntegrationProperties.getConnectTimeout())
+//                        .doOnConnected(connection -> {
+//                            connection.addHandlerLast(new ReadTimeoutHandler(cartServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS));
+//                            connection.addHandlerLast(new WriteTimeoutHandler(cartServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS));
+//                        })))
+//                .build();
 
-        return WebClient
-                .builder()
-                .baseUrl(cartServiceIntegrationProperties.getUrl())
-                .clientConnector(new ReactorClientHttpConnector(HttpClient.from(tcpClient)))
-                .build();
+    HttpClient httpClient = HttpClient.create()
+            .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, cartServiceIntegrationProperties.getConnectTimeout())
+            .doOnConnected(connection ->
+                    connection.addHandlerLast(new ReadTimeoutHandler(cartServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS))
+                            .addHandlerLast(new WriteTimeoutHandler(cartServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS)));
+
+    return WebClient.builder()
+            .baseUrl(cartServiceIntegrationProperties.getUrl())
+            .clientConnector(new ReactorClientHttpConnector(httpClient))
+            .build();
+
     }
 }
 
