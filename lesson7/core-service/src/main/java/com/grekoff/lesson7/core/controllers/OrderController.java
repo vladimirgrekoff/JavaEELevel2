@@ -17,7 +17,7 @@ public class OrderController {
     // http://localhost:8189/lesson7-core/api/v1/orders
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createOrder(@RequestHeader String username) {
+    public void createOrder(@RequestHeader("username") String username) {
 //        User user = userService.findByUsername(principal.getName()).orElseThrow(() -> new RuntimeException("Пользователь с таким именем не найден"));
 
         ordersService.createOrder(username);

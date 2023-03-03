@@ -17,7 +17,8 @@ public class CartController {
 
     // http://localhost:8190/lesson7-cart/api/v1/cart
     @GetMapping
-    public CartDto getCurrentCart() {
+
+    public CartDto getCurrentCart(@RequestHeader("username") String username) {
         return cartConverter.entityToDto(cartService.getCurrentCart());
     }
 
@@ -32,7 +33,7 @@ public class CartController {
     }
 
     @DeleteMapping("/clear")
-    public void deleteAllProducts(){
+    public void deleteAllProducts(@RequestHeader("username") String username){
         cartService.clearCart();
     }
 
