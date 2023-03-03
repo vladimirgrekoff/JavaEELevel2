@@ -25,10 +25,9 @@ public class OrdersService {
     @Transactional
     public void createOrder(String username) {
         UserDto userDto = authServiceIntegration.getCurrentUserInfo(username);
-        System.out.println("пользователь " + userDto);/////////////////////////////////////
         CartDto cartDto = cartServiceIntegration.getCurrentCart(username);
-        System.out.println("корзина " + cartDto);/////////////////////////////////////
         Order order = new Order();
+
         order.setUser_id(userDto.getId());
         order.setTotalPrice(cartDto.getTotalPrice());
         order.setEmail(userDto.getEmail());

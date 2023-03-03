@@ -39,14 +39,6 @@ public class CartService {
         }
     }
 
-//    public SelectedProduct addProductInCart(SelectedProduct selectedProduct) {
-//        return cartRepository.addProduct(selectedProduct);
-//    }
-
-//    public SelectedProduct updateProductInCart(SelectedProduct selectedProduct) {
-//        return cart.update(selectedProduct);
-//    }
-
     public void clearCart() {
         cart.clear();
     }
