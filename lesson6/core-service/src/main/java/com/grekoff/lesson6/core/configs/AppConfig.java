@@ -1,5 +1,6 @@
 package com.grekoff.lesson6.core.configs;
 
+import com.grekoff.lesson6.core.properties.AuthServiceIntegrationProperties;
 import com.grekoff.lesson6.core.properties.CartServiceIntegrationProperties;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
@@ -16,37 +17,39 @@ import java.util.concurrent.TimeUnit;
 
 @Configuration
 @RequiredArgsConstructor
-@EnableConfigurationProperties(
-        CartServiceIntegrationProperties.class
-)
+@EnableConfigurationProperties({CartServiceIntegrationProperties.class, AuthServiceIntegrationProperties.class})
 public class AppConfig {
     private final CartServiceIntegrationProperties cartServiceIntegrationProperties;
+    private final AuthServiceIntegrationProperties authServiceIntegrationProperties;
 
     @Bean
     public WebClient cartServiceWebClient() {
-//        HttpClient.create();
-//        return WebClient
-//                .builder()
-//                .baseUrl(cartServiceIntegrationProperties.getUrl())
-//                .clientConnector(new ReactorClientHttpConnector(HttpClient.newConnection()
-//                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, cartServiceIntegrationProperties.getConnectTimeout())
-//                        .doOnConnected(connection -> {
-//                            connection.addHandlerLast(new ReadTimeoutHandler(cartServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS));
-//                            connection.addHandlerLast(new WriteTimeoutHandler(cartServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS));
-//                        })))
-//                .build();
-
-    HttpClient httpClient = HttpClient.create()
-            .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, cartServiceIntegrationProperties.getConnectTimeout())
-            .doOnConnected(connection ->
-                    connection.addHandlerLast(new ReadTimeoutHandler(cartServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS))
-                            .addHandlerLast(new WriteTimeoutHandler(cartServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS)));
-
-    return WebClient.builder()
-            .baseUrl(cartServiceIntegrationProperties.getUrl())
-            .clientConnector(new ReactorClientHttpConnector(httpClient))
-            .build();
-
+        HttpClient.create();
+        return WebClient
+                .builder()
+                .baseUrl(cartServiceIntegrationProperties.getUrl())
+                .clientConnector(new ReactorClientHttpConnector(HttpClient.newConnection()
+                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, cartServiceIntegrationProperties.getConnectTimeout())
+                        .doOnConnected(connection -> {
+                            connection.addHandlerLast(new ReadTimeoutHandler(cartServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS));
+                            connection.addHandlerLast(new WriteTimeoutHandler(cartServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS));
+                        })))
+                .build();
     }
+
+    @Bean
+    public WebClient authServiceWebClient() {
+            HttpClient httpClient = HttpClient.create()
+                    .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, authServiceIntegrationProperties.getConnectTimeout())
+                    .doOnConnected(connection ->
+                            connection.addHandlerLast(new ReadTimeoutHandler(authServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS))
+                                    .addHandlerLast(new WriteTimeoutHandler(authServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS)));
+
+            return WebClient.builder()
+                    .baseUrl(authServiceIntegrationProperties.getUrl())
+                    .clientConnector(new ReactorClientHttpConnector(httpClient))
+                    .build();
+
+        }
 }
 

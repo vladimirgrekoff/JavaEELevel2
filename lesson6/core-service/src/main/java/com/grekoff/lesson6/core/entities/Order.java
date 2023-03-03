@@ -23,7 +23,7 @@ public class Order {
     private Long id;
 
     @Column(name = "user_id")
-    private String username;
+    private Long user_id;
 
     @Column(name = "total_price")
     private BigDecimal totalPrice;

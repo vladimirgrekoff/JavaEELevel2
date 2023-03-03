@@ -2,10 +2,10 @@ package com.grekoff.lesson6.core.services;
 
 
 import com.grekoff.lesson6.api.ProductDto;
+import com.grekoff.lesson6.core.services.specifications.ProductsSpecifications;
 import com.grekoff.lesson6.core.entities.Product;
 import com.grekoff.lesson6.core.exceptions.ResourceNotFoundException;
 import com.grekoff.lesson6.core.repositories.ProductsRepository;
-import com.grekoff.lesson6.core.services.specifications.ProductsSpecifications;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

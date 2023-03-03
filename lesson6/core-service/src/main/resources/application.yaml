@@ -22,8 +22,14 @@ spring:
       settings:
         web-allow-others: false
 integrations:
-  product-service:
+  cart-service:
     url: http://localhost:8190/lesson6-cart/
+    connect-timeout: 5000
+    read-timeout: 10000
+    write-timeout: 5000
+
+  auth-service:
+    url: http://localhost:8187/lesson6-auth/
     connect-timeout: 5000
     read-timeout: 10000
     write-timeout: 5000
