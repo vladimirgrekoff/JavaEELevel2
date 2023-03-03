@@ -5,7 +5,7 @@ import com.grekoff.lesson7.api.ProductDto;
 import com.grekoff.lesson7.core.entities.Product;
 import com.grekoff.lesson7.core.exceptions.ResourceNotFoundException;
 import com.grekoff.lesson7.core.repositories.ProductsRepository;
-import com.grekoff.lesson7.core.specifications.ProductsSpecifications;
+import com.grekoff.lesson7.core.services.specifications.ProductsSpecifications;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

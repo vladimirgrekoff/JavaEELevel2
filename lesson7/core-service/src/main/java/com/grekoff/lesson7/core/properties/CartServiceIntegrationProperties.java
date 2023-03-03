@@ -2,9 +2,9 @@ package com.grekoff.lesson7.core.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-//import org.springframework.boot.context.properties.ConstructorBinding;
+import org.springframework.context.annotation.Configuration;
 
-//@ConstructorBinding
+@Configuration
 @ConfigurationProperties(prefix = "integrations.cart-service")
 @Data
 public class CartServiceIntegrationProperties {

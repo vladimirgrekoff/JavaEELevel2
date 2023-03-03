@@ -17,26 +17,13 @@ import java.util.concurrent.TimeUnit;
 
 @Configuration
 @RequiredArgsConstructor
-@EnableConfigurationProperties(
-        ProductsServiceIntegrationProperties.class
-)
+@EnableConfigurationProperties(ProductsServiceIntegrationProperties.class)
 public class AppConfig {
     private final ProductsServiceIntegrationProperties productsServiceIntegrationProperties;
 
 
     @Bean
     public WebClient productServiceWebClient() {
-//        HttpClient.create();
-//        return WebClient
-//                .builder()
-//                .baseUrl(productsServiceIntegrationProperties.getUrl())
-//                .clientConnector(new ReactorClientHttpConnector(HttpClient.newConnection()
-//                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, productsServiceIntegrationProperties.getConnectTimeout())
-//                        .doOnConnected(connection -> {
-//                            connection.addHandlerLast(new ReadTimeoutHandler(productsServiceIntegrationProperties.getReadTimeout(), TimeUnit.MILLISECONDS));
-//                            connection.addHandlerLast(new WriteTimeoutHandler(productsServiceIntegrationProperties.getWriteTimeout(), TimeUnit.MILLISECONDS));
-//                        })))
-//                .build();
 
     HttpClient httpClient = HttpClient.create()
             .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, productsServiceIntegrationProperties.getConnectTimeout())

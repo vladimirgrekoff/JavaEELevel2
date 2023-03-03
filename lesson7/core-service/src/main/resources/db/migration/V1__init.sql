@@ -51,8 +51,9 @@ insert into products (title, price, category_id) values
 create table orders
 (
     id          bigserial primary key,
-    username    varchar(255) not null,
+    user_id     bigint not null,
     total_price numeric(8, 2) not null,
+    email       varchar(50),
     created_at  timestamp default current_timestamp,
     updated_at  timestamp default current_timestamp
 );

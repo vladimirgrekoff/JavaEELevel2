@@ -11,7 +11,6 @@ import jakarta.annotation.PostConstruct;
 
 import java.util.ArrayList;
 
-//@Component
 @Service
 @RequiredArgsConstructor
 public class CartService {
@@ -39,14 +38,6 @@ public class CartService {
             cart.delete(productId);
         }
     }
-
-//    public SelectedProduct addProductInCart(SelectedProduct selectedProduct) {
-//        return cartRepository.addProduct(selectedProduct);
-//    }
-
-//    public SelectedProduct updateProductInCart(SelectedProduct selectedProduct) {
-//        return cart.update(selectedProduct);
-//    }
 
     public void clearCart() {
         cart.clear();

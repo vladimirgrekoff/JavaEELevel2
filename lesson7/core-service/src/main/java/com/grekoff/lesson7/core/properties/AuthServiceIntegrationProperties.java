@@ -1,14 +1,14 @@
-package com.grekoff.lesson7.cart.properties;
+package com.grekoff.lesson7.core.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-//import org.springframework.boot.context.properties.ConstructorBinding;
+
 
 @Configuration
-@ConfigurationProperties(prefix = "integrations.product-service")
+@ConfigurationProperties(prefix = "integrations.auth-service")
 @Data
-public class ProductsServiceIntegrationProperties {
+public class AuthServiceIntegrationProperties {
     private String url;
     private Integer connectTimeout;
     private Integer readTimeout;

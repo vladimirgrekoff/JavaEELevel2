@@ -19,6 +19,8 @@ public class ProductsController {
     private final ProductConverter productConverter;
     private final ProductValidator productValidator;
 
+    // http://localhost:8189/lesson7-core/api/v1/products
+
     @GetMapping
     public Page<ProductDto> getAllProducts(
             @RequestParam(name = "min_price", required = false) Integer minPrice,

@@ -1,4 +1,4 @@
-package com.grekoff.lesson7.core.specifications;
+package com.grekoff.lesson7.core.services.specifications;
 
 import com.grekoff.lesson7.core.entities.Product;
 import org.springframework.data.jpa.domain.Specification;

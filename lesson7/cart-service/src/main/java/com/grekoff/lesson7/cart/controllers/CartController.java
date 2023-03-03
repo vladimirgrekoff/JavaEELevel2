@@ -15,7 +15,7 @@ public class CartController {
     private final CartService cartService;
     private final CartConverter cartConverter;
 
-    // GET http://localhost:8189/lesson5-cart/api/v1/cart
+    // http://localhost:8190/lesson7-cart/api/v1/cart
     @GetMapping
     public CartDto getCurrentCart() {
         return cartConverter.entityToDto(cartService.getCurrentCart());

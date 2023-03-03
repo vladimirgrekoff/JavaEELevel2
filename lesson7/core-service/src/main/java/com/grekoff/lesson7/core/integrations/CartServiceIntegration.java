@@ -11,6 +11,7 @@ public class CartServiceIntegration {
     private final WebClient cartServiceWebClient;
 
     public CartDto getCurrentCart(String username) {
+//                .uri("http://localhost:8190/lesson7-cart/api/v1/cart")
         return cartServiceWebClient.get()
                 .uri("/api/v1/cart")
                 .header("username", username)
@@ -20,7 +21,7 @@ public class CartServiceIntegration {
     }
 
     public void clear(String username) {
-        cartServiceWebClient.get()
+        cartServiceWebClient.delete()
                 .uri("/api/v1/cart/clear")
                 .header("username", username)
                 .retrieve()

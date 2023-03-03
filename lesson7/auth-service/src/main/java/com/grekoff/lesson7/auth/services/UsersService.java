@@ -37,10 +37,8 @@ public class UsersService implements UserDetailsService {
         List<UserDto> userDtoList = new ArrayList<>();
         List<User> userList = usersRepository.findAll();
         for (User u: userList) {
-            System.out.println(u);////////////////////////////////////////////
             UserDto userDto = userConverter.entityToDto(u);
             userDtoList.add(userDto);
-            System.out.println(userDto);///////////////////////////////////////
         }
 
         return userDtoList;
