@@ -22,7 +22,7 @@ spring:
       settings:
         web-allow-others: false
 integrations:
-  product-service:
+  cart-service:
     url: http://localhost:8190/lesson7-cart/
     connect-timeout: 5000
     read-timeout: 10000
